@@ -1,359 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>OpenAPK Hub — Open-source apps & games</title>
-  <meta name="description" content="OpenAPK Hub — Discover open-source premium apps and games with no region lock. Use official/open-source links only.">
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APKPure World - Free Mod APKs</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root{
-      --brand1: #0b63ff;
-      --accent: #00c9a7;
-      --muted: #6c757d;
-      --card: #ffffff;
-      --bg: linear-gradient(180deg, #f4f8ff 0%, #f9fbff 100%);
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    html,body{ height:100%; }
-    body{
-      margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--bg); color:#0f1724;
-      -webkit-font-smoothing:antialiased;
+    .navbar {
+      background: #0d6efd;
     }
-
-    /* NAV */
-    .navbar { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(8,15,30,0.04); }
-    .brand { font-weight:700; color:var(--brand1); letter-spacing:0.2px; }
-
-    /* HERO */
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
     .hero {
-      padding:4rem 0;
+      background: linear-gradient(to right, #0d6efd, #6610f2);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
     }
-    .hero-card{
-      border-radius:18px; padding:1.6rem;
-      background: linear-gradient(135deg, rgba(11,99,255,0.06), rgba(0,201,167,0.02));
-      box-shadow: 0 12px 30px rgba(8,15,30,0.06);
-      border: 1px solid rgba(8,15,30,0.03);
+    .app-card {
+      transition: transform 0.2s ease-in-out;
     }
-    .search-field {
-      border-radius:12px; border:1px solid rgba(8,15,30,0.06);
-      background:#fff; padding:.5rem;
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
-
-    /* FEATURE CARDS */
-    .app-card { border-radius:14px; overflow:hidden; border:0; transition:transform .18s ease, box-shadow .18s ease; background:var(--card); }
-    .app-card:hover{ transform:translateY(-6px); box-shadow: 0 18px 40px rgba(8,15,30,0.08); }
-    .app-thumb { height:130px; object-fit:cover; width:100%; display:block; }
-
-    /* CATEGORIES */
-    .cat-card { border-radius:12px; padding:1rem; border:1px solid rgba(8,15,30,0.03); background:#fff; }
-
-    /* LATEST */
-    .list-download { min-width:110px; }
-
-    /* FOOTER */
-    footer{ padding:2rem 0; color:var(--muted); }
-
-    @media (max-width:767px){
-      .hero{ padding:2rem 0; }
-      .app-thumb { height:110px; }
+    footer {
+      background: #0d6efd;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
     }
-
-    /* small helpers */
-    .chip{ font-size:.8rem; padding:.25rem .6rem; border-radius:999px; background:rgba(8,15,30,0.06); color:var(--muted); }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand brand" href="#">OpenAPK Hub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
-          <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-          <li class="nav-item"><a class="nav-link" href="#latest">Latest</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item ms-2"><a class="btn btn-outline-primary btn-sm" href="#contact">Contact</a></li>
-        </ul>
-      </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">APKPure World</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#apps">Apps</a></li>
+        <li class="nav-item"><a class="nav-link" href="#games">Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- SECTION 1: HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="row gy-4 align-items-center">
-        <div class="col-lg-7">
-          <div class="hero-card">
-            <h1 class="display-6 mb-2">Open-source premium apps & games — no region lock</h1>
-            <p class="text-muted mb-3">Browse verified open-source APKs, inspect source links, download official builds, and support maintainers. Replace placeholders with official repositories or signed APKs.</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Download Free Mod APKs</h1>
+    <p class="lead">Get unlimited access to premium apps & games without region lock</p>
+    <a href="#apps" class="btn btn-light btn-lg mt-3">Explore Now</a>
+  </div>
+</section>
 
-            <div class="row g-2 align-items-center">
-              <div class="col-sm-8">
-                <div class="input-group search-field">
-                  <input id="q" class="form-control border-0" type="search" placeholder="Search apps, keywords, maintainers..." aria-label="Search">
-                  <button class="btn btn-link text-muted" type="button" onclick="clearSearch()" title="Clear">✕</button>
-                </div>
-                <small class="text-muted d-block mt-2">Tip: link downloads to GitHub releases, Play Store, F-Droid, or your verified mirrors.</small>
-              </div>
-              <div class="col-sm-4 d-grid">
-                <button class="btn btn-primary" onclick="doSearch()">Search</button>
-              </div>
-            </div>
-
+<!-- Apps Section -->
+<section id="apps" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Popular Apps</h2>
+    <div class="row g-4">
+      <!-- App Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/06/capcut.webp" class="card-img-top" alt="CapCut">
+          <div class="card-body text-center">
+            <h5 class="card-title">CapCut Mod APK</h5>
+            <a href="https://apkpure.world/capcut-mod-apk/" class="btn btn-primary btn-sm">Download</a>
           </div>
-        </div>
-
-        <div class="col-lg-5 text-center">
-          <img src="https://images.unsplash.com/photo-1523473827532-72be5b8b3b9b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="apps" class="img-fluid rounded shadow-sm" style="max-height:320px; object-fit:cover;">
         </div>
       </div>
-    </div>
-  </header>
-
-  <!-- SECTION 2: FEATURED APPS -->
-  <section id="featured" class="py-5">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="h5 mb-0">Featured Open-source Apps</h2>
-        <a href="#latest" class="small text-decoration-none">See latest →</a>
-      </div>
-
-      <div class="row g-3">
-        <!-- App Card 1 -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card app-card h-100">
-            <img src="https://via.placeholder.com/600x400?text=Photo+Editor" class="app-thumb" alt="App 1">
-            <div class="card-body">
-              <h5 class="card-title mb-1">OpenPhoto Pro</h5>
-              <p class="card-text small text-muted mb-2">Advanced photo editor — open-source, privacy-first.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <!-- Replace href="#" with official release link / GitHub release / F-Droid page -->
-                <a class="btn btn-sm btn-outline-primary" href="#" aria-label="Download OpenPhoto Pro">Download</a>
-                <span class="chip">Photography</span>
-              </div>
-            </div>
+      <!-- Another App -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/07/inshot.webp" class="card-img-top" alt="InShot">
+          <div class="card-body text-center">
+            <h5 class="card-title">InShot Pro APK</h5>
+            <a href="https://apkpure.world/inshot-pro-apk/" class="btn btn-primary btn-sm">Download</a>
           </div>
-        </div>
-
-        <!-- App Card 2 -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card app-card h-100">
-            <img src="https://via.placeholder.com/600x400?text=Music+Studio" class="app-thumb" alt="App 2">
-            <div class="card-body">
-              <h5 class="card-title mb-1">MuseLab</h5>
-              <p class="card-text small text-muted mb-2">Lightweight music maker — open-source plugins.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-sm btn-outline-primary" href="#">Download</a>
-                <span class="chip">Music</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- App Card 3 -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card app-card h-100">
-            <img src="https://via.placeholder.com/600x400?text=Productivity" class="app-thumb" alt="App 3">
-            <div class="card-body">
-              <h5 class="card-title mb-1">TaskFlow</h5>
-              <p class="card-text small text-muted mb-2">Powerful tasks & notes, sync via optional backends.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-sm btn-outline-primary" href="#">Download</a>
-                <span class="chip">Productivity</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- App Card 4 -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card app-card h-100">
-            <img src="https://via.placeholder.com/600x400?text=Open+Game" class="app-thumb" alt="App 4">
-            <div class="card-body">
-              <h5 class="card-title mb-1">PixelQuest</h5>
-              <p class="card-text small text-muted mb-2">Open-source pixel platformer — community levels.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a class="btn btn-sm btn-outline-primary" href="#">Download</a>
-                <span class="chip">Games</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: CATEGORIES -->
-  <section id="categories" class="py-5 bg-white">
-    <div class="container">
-      <div class="row align-items-center mb-3">
-        <div class="col-md-8">
-          <h3 class="h5 mb-0">Categories</h3>
-          <p class="text-muted small mb-0">Browse curated categories — all open-source or verified builds.</p>
-        </div>
-        <div class="col-md-4 text-md-end">
-          <a href="#" class="btn btn-sm btn-outline-secondary">Explore all categories</a>
         </div>
       </div>
-
-      <div class="row g-3">
-        <div class="col-6 col-md-3">
-          <div class="cat-card text-center h-100">
-            <div style="font-size:28px">🎮</div>
-            <h6 class="mt-2 mb-1">Games</h6>
-            <p class="small text-muted mb-0">Community & indie games</p>
+      <!-- Another App -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/07/kinemaster.webp" class="card-img-top" alt="Kinemaster">
+          <div class="card-body text-center">
+            <h5 class="card-title">Kinemaster Mod APK</h5>
+            <a href="https://apkpure.world/kinemaster-mod-apk/" class="btn btn-primary btn-sm">Download</a>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="cat-card text-center h-100">
-            <div style="font-size:28px">📷</div>
-            <h6 class="mt-2 mb-1">Photography</h6>
-            <p class="small text-muted mb-0">Editors & viewers</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="cat-card text-center h-100">
-            <div style="font-size:28px">💼</div>
-            <h6 class="mt-2 mb-1">Productivity</h6>
-            <p class="small text-muted mb-0">Notes, tasks, calendars</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="cat-card text-center h-100">
-            <div style="font-size:28px">🎵</div>
-            <h6 class="mt-2 mb-1">Music</h6>
-            <p class="small text-muted mb-0">Players & studios</p>
+      </div>
+      <!-- Another App -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/08/snapchat.webp" class="card-img-top" alt="Snapchat">
+          <div class="card-body text-center">
+            <h5 class="card-title">Snapchat Mod APK</h5>
+            <a href="https://apkpure.world/snapchat-mod-apk/" class="btn btn-primary btn-sm">Download</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SECTION 4: LATEST UPLOADS -->
-  <section id="latest" class="py-5">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="h5 mb-0">Latest Uploads</h3>
-        <small class="text-muted">Updated: <span id="dateNow"></span></small>
+<!-- Games Section -->
+<section id="games" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Trending Games</h2>
+    <div class="row g-4">
+      <!-- Game Card -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/06/brawlstars.webp" class="card-img-top" alt="Brawl Stars">
+          <div class="card-body text-center">
+            <h5 class="card-title">Brawl Stars Mod APK</h5>
+            <a href="https://apkpure.world/brawl-stars-mod-apk/" class="btn btn-success btn-sm">Download</a>
+          </div>
+        </div>
       </div>
-
-      <div class="list-group">
-        <!-- list item 1 -->
-        <div class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-          <div class="d-flex align-items-start gap-3">
-            <img src="https://via.placeholder.com/96x96?text=App" alt="Latest 1" class="rounded" style="width:96px;height:96px;object-fit:cover;">
-            <div>
-              <div class="fw-bold">OpenPhoto Pro — v2.0.1</div>
-              <div class="small text-muted">Signed build from GitHub Releases — improved raw support, bug fixes.</div>
-              <div class="small text-muted mt-1">Source: <a href="#" class="text-decoration-none">github.com/author/openphoto</a></div>
-            </div>
-          </div>
-          <div class="mt-3 mt-md-0 text-md-end">
-            <!-- Replace href="#" with official release / github release asset / fdroid url -->
-            <a class="btn btn-sm btn-success mb-2 d-inline-block list-download" href="#" role="button" aria-label="Download OpenPhoto Pro">Download APK</a>
-            <div class="small text-muted">Size: 32 MB</div>
+      <!-- Another Game -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/07/teenpatti.webp" class="card-img-top" alt="Teen Patti Gold">
+          <div class="card-body text-center">
+            <h5 class="card-title">Teen Patti Gold Mod</h5>
+            <a href="https://apkpure.world/teen-patti-gold-mod-apk/" class="btn btn-success btn-sm">Download</a>
           </div>
         </div>
-
-        <!-- list item 2 -->
-        <div class="list-group-item d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-          <div class="d-flex align-items-start gap-3">
-            <img src="https://via.placeholder.com/96x96?text=Game" alt="Latest 2" class="rounded" style="width:96px;height:96px;object-fit:cover;">
-            <div>
-              <div class="fw-bold">PixelQuest — v1.8</div>
-              <div class="small text-muted">New community levels added. Source & builds: <a href="#" class="text-decoration-none">github.com/author/pixelquest</a></div>
-            </div>
-          </div>
-          <div class="mt-3 mt-md-0 text-md-end">
-            <a class="btn btn-sm btn-success mb-2 d-inline-block list-download" href="#" role="button">Download APK</a>
-            <div class="small text-muted">Size: 85 MB</div>
-          </div>
-        </div>
-
       </div>
-
-      <p class="mt-3 small text-muted">Note: Always check the source link before installing. Prefer signed builds from official GitHub/F-Droid/maintainer pages.</p>
-    </div>
-  </section>
-
-  <!-- SECTION 5: ABOUT & CONTACT -->
-  <section id="about" class="py-5 bg-white">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <h4 class="mb-2">About OpenAPK Hub</h4>
-          <p class="text-muted">OpenAPK Hub lists open-source Android apps and community builds. We do NOT host proprietary or pirated software. Use links to official releases or the original project repositories. This template is for lawful distribution and for promoting open-source projects.</p>
-
-          <ul class="list-unstyled small text-muted">
-            <li>• Source-based listings (GitHub, GitLab, F-Droid)</li>
-            <li>• Signed release links and changelogs</li>
-            <li>• Community moderation & verification</li>
-          </ul>
+      <!-- Another Game -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/07/gachaclub.webp" class="card-img-top" alt="Gacha Club">
+          <div class="card-body text-center">
+            <h5 class="card-title">Gacha Club Mod</h5>
+            <a href="https://apkpure.world/gacha-club-mod-apk/" class="btn btn-success btn-sm">Download</a>
+          </div>
         </div>
-
-        <div class="col-lg-6" id="contact">
-          <h5 class="mb-2">Contact / Submit an App</h5>
-          <form id="contactForm" class="row g-2">
-            <div class="col-12">
-              <input class="form-control" placeholder="Your name" required>
-            </div>
-            <div class="col-12">
-              <input class="form-control" placeholder="Email" type="email" required>
-            </div>
-            <div class="col-12">
-              <input class="form-control" placeholder="Project GitHub or F-Droid URL (paste full URL)" required>
-            </div>
-            <div class="col-12">
-              <textarea class="form-control" rows="3" placeholder="Optional message"></textarea>
-            </div>
-            <div class="col-12 text-end">
-              <button type="submit" class="btn btn-primary">Send submission</button>
-            </div>
-          </form>
-          <p class="small text-muted mt-2">We suggest verifying ownership or maintainer consent before linking releases.</p>
+      </div>
+      <!-- Another Game -->
+      <div class="col-md-3 col-sm-6">
+        <div class="card app-card">
+          <img src="https://apkpure.world/wp-content/uploads/2024/07/survivorio.webp" class="card-img-top" alt="Survivor.io">
+          <div class="card-body text-center">
+            <h5 class="card-title">Survivor.io Mod APK</h5>
+            <a href="https://apkpure.world/survivor-io-mod-apk/" class="btn btn-success btn-sm">Download</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-      <div class="small text-muted">© <span id="yr"></span> OpenAPK Hub — For open-source apps only.</div>
-      <div class="mt-2 mt-md-0">
-        <a class="small text-decoration-none me-3" href="#">Privacy</a>
-        <a class="small text-decoration-none" href="#">Terms</a>
-      </div>
-    </div>
-  </footer>
+<!-- About Section -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">About APKPure World</h2>
+    <p class="text-center mx-auto" style="max-width: 700px;">
+      APKPure World is your trusted source to download the latest Mod APKs of apps and games. 
+      All downloads are free, safe, and accessible worldwide without region restrictions. 
+      Whether you want premium unlocked apps or unlimited game resources, we’ve got you covered.
+    </p>
+  </div>
+</section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // small demo JS (replace or remove for production)
-    document.getElementById('yr').innerText = new Date().getFullYear();
-    document.getElementById('dateNow').innerText = new Date().toLocaleDateString();
-    function doSearch(){
-      const q = document.getElementById('q').value.trim();
-      if(!q) { alert('Enter a search term (demo).'); return; }
-      // Replace with real search logic (AJAX / filter)
-      alert('Demo search for: ' + q + '\\nImplement a backend or client-side filter to return results.');
-    }
-    function clearSearch(){ document.getElementById('q').value=''; }
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Submission demo received. Hook this form to your email or backend.');
-      this.reset();
-    });
-  </script>
+<!-- Footer -->
+<footer>
+  <p>© 2025 APKPure World. All Rights Reserved.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
